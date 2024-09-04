@@ -1,4 +1,4 @@
-# bzmb-he
+# bzmb-htmltopdf
 
 A [bzBond-server](https://github.com/beezwax/bzBond/tree/main/packages/bzBond-server#bzbond-server) microbond to create PDF from HTML code using [puppeteer](https://www.npmjs.com/package/puppeteer).
 
