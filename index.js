@@ -18,13 +18,16 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       try {
-        let pdf;
+        // let pdf;
         convertMod(async function(convert){
-          pdf = await convert(req.html, req.options);
+          const pdf = await convert(req.html, req.options);
+          res
+            .code(200)
+            .send(pdf);
         });
-        res
-          .code(200)
-          .send(pdf);
+        // res
+        //   .code(200)
+        //   .send(pdf);
       } catch (error) {
         res
           .code(500)
