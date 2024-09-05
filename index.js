@@ -25,7 +25,7 @@ async function bzmbConvert(fastify, options) {
           
           res
             .code(200)
-            .send(pdf);
+            .send(pdf ? pdf : "No PDF generated");
         });
         // res
         //   .code(200)
