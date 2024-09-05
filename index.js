@@ -21,6 +21,8 @@ async function bzmbConvert(fastify, options) {
         // let pdf;
         convertMod(async function(convert){
           const pdf = await convert(req.html, req.options);
+          console.log(pdf);
+          
           res
             .code(200)
             .send(pdf);
