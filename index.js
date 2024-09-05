@@ -23,13 +23,13 @@ async function bzmbConvert(fastify, options) {
           const pdf = await convert(req.html, req.options);
           console.log(pdf);
           
-          res
-            .code(200)
-            .send(pdf ? pdf : "No PDF generated");
+          // res
+          //   .code(200)
+          //   .send(pdf ? pdf : "No PDF generated");
         });
-        // res
-        //   .code(200)
-        //   .send(pdf);
+        res
+          .code(200)
+          .send("Placeholder");
       } catch (error) {
         res
           .code(500)
