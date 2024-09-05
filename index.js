@@ -1,5 +1,3 @@
-const convertMod = require("./convert.js");
-
 const convertSchema = {
   body: {
     type: "object",
@@ -19,16 +17,17 @@ async function bzmbConvert(fastify, options) {
     async (req, res) => {
       try {
         // let pdf;
+        const convertMod = require("./convert.js");
         console.log(convertMod);
         
-        convertMod(async function(convert){
-          const pdf = await convert(req.html, req.options);
-          console.log(pdf);
+        // convertMod(async function(convert){
+        //   const pdf = await convert(req.html, req.options);
+        //   console.log(pdf);
           
-          // res
-          //   .code(200)
-          //   .send(pdf ? pdf : "No PDF generated");
-        });
+        //   // res
+        //   //   .code(200)
+        //   //   .send(pdf ? pdf : "No PDF generated");
+        // });
         res
           .code(200)
           .send("Placeholder");
