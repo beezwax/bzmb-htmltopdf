@@ -17,7 +17,7 @@ async function bzmbConvert(fastify, options) {
     async (req, res) => {
       try {
         // let pdf;
-        // const convertMod = require("./convert.js");
+        const convertMod = require("./convert.js");
         // console.log(convertMod);
         
         // convertMod(async function(convert){
