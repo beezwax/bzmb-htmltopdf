@@ -17,16 +17,18 @@ async function bzmbConvert(fastify, options) {
     "/bzmb-htmltopdf-convert",
     { schema: convertSchema },
     async (req, res) => {
-      let convertMod;
-      try {
-        console.log("About to require");
-        convertMod = await require("./convert.js");
-      } catch (error) {
-        console.log(error);
+      const importPromise = require('./imports.js');
+      importPromise.then(([result]) => console.log(result))
+      // let convertMod;
+      // try {
+      //   console.log("About to require");
+      //   convertMod = await require("./convert.js");
+      // } catch (error) {
+      //   console.log(error);
         
-      }
+      // }
 
-      res.code(200).send(`convertMod is ${typeof convertMod}`);
+      res.code(200).send(`convertMod is ${typeof importPromise}`);
       
       // require("./convert.js").then(async function(convert) {
       //   console.log("In then");
