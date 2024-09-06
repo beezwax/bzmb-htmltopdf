@@ -41,8 +41,8 @@ module.exports = new Promise(function (resolve, reject) {
         return base64String;
       };
       resolve(convert);
-    }).catch((error) => console.log(Object.keys(error).toString())
-  )
+    })
+    .catch((error) => console.log(error))
 })
 
 
