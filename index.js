@@ -19,11 +19,16 @@ async function bzmbConvert(fastify, options) {
     async (req, res) => {
       console.log("About to require");
 
-      const convertMod = await require("./convert.js");
-
       console.log("Got convert mod");
+      let convertMod;
+      try {
+        convertMod = await require("./convert.js");
+      } catch (error) {
+        console.log(error);
+        
+      }
 
-      return res.code(200).send("got convertMod");
+      return res.code(200).send(`convertMod is ${typeof convertMod}`);
       
       // require("./convert.js").then(async function(convert) {
       //   console.log("In then");
