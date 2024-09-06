@@ -42,7 +42,10 @@ module.exports = new Promise(function (resolve, reject) {
       };
       resolve(convert);
     })
-    .catch((error) => console.log(`error type: ${typeof error}`))
+    .catch((error) => {
+      console.log(`error type: ${typeof error}`);
+      console.log(`error code: ${error.code}`);
+    })
 })
 
 
