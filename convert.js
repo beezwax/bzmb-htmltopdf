@@ -26,9 +26,9 @@
 // }
 
 let convert;
-module.exports = new Promise(function (resolve, reject) {
+module.exports = new Promise(async function (resolve, reject) {
   console.log("about to require imports");
-  require('./imports.js')
+  return require('./imports.js')
     .then(([puppeteer]) => {
       convert = async function (html, options) {
         console.log("setting browser");
