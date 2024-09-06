@@ -18,15 +18,21 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       console.log("About to require");
+
+      const convertMod = await require("./convert.js");
+
+      console.log("Got convert mod");
+
+      return res.code(200).send("got convertMod");
       
-      require("./convert.js").then(async function(convert) {
-        console.log("In then");
+      // require("./convert.js").then(async function(convert) {
+      //   console.log("In then");
         
-        const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
-        res
-          .code(200)
-          .send(pdf ? pdf : "No PDF generated");
-      });
+      //   const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
+      //   res
+      //     .code(200)
+      //     .send(pdf ? pdf : "No PDF generated");
+      // });
       // try {
       //   let pdf;
       //   convertMod.then(async function(convert) {
