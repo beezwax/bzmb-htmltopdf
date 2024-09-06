@@ -19,6 +19,7 @@ async function bzmbConvert(fastify, options) {
         let pdf;
         const convertMod = require("./convert.js").then(async function(convert) {
           pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
+          resolve(pdf);
           // console.log(pdf);
           // res
           //   .code(200)
