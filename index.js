@@ -18,6 +18,8 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       require("./convert.js").then(async function(convert) {
+        console.log("In then");
+        
         const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
         res
           .code(200)
