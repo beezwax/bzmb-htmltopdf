@@ -30,9 +30,12 @@ module.exports = new Promise(function (resolve, reject) {
   require('./imports.js')
     .then(([puppeteer]) => {
       convert = async function (html, options) {
+        console.log("setting browser");
         const browser = await puppeteer.launch();
+        console.log("setting page");
         const page = await browser.newPage();
         await page.setContent(html);
+        console.log("setting pdf");
         const pdf = await page.pdf(options);
         const buffer = Buffer.from(pdf);
         const base64String = buffer.toString('base64');
