@@ -18,7 +18,7 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       console.log("Running Imports");
-      const puppeteer = await import("puppeteer");
+      const puppeteer = await import("cat");
       console.log(puppeteer);
       
       // const importPromise = require('./imports.js');
