@@ -18,7 +18,12 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       console.log("Running Imports");
-      await import("puppeteer");
+      try {
+        await import("puppeteer");
+      } catch (error) {
+        console.log(`Import error: ${JSON.stringify(error)}`);
+        
+      }
       // console.log(puppeteer);
       
       // const importPromise = require('./imports.js');
