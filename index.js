@@ -18,13 +18,16 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       console.log("Running Imports");
-      const importPromise = require('./imports.js');
+      const puppeteer =  import("puppeteer");
+      console.log(puppeteer);
+      
+      // const importPromise = require('./imports.js');
 
-      console.log("Resolving Promise");
-      const importPromiseResult = await importPromise;
-      console.log("About to log promise result");
+      // console.log("Resolving Promise");
+      // const importPromiseResult = await importPromise;
+      // console.log("About to log promise result");
 
-      console.log(importPromiseResult);
+      // console.log(importPromiseResult);
       
       // let convertMod;
       // try {
@@ -35,7 +38,7 @@ async function bzmbConvert(fastify, options) {
         
       // }
 
-      res.code(200).send(`convertMod is ${typeof importPromise}`);
+      res.code(200).send(`placeholder`);
       
       // require("./convert.js").then(async function(convert) {
       //   console.log("In then");
