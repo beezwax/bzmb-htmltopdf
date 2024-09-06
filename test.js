@@ -1,7 +1,14 @@
-const convertMod = require("./convert.js").then(async function(convert) {
+const convert = require("./convert.js");
+
+(async() => {
   const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
   console.log(pdf);
-});
+})();
+
+// const convertMod = require("./convert.js").then(async function(convert) {
+//   const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
+//   console.log(pdf);
+// });
 // console.log(convertMod);
 
 
