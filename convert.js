@@ -44,7 +44,7 @@ module.exports = new Promise(function (resolve, reject) {
     })
     .catch((error) => {
       console.log(`error type: ${typeof error}`);
-      console.log(`error code: ${error.code}`);
+      console.log(`error keys: ${Object.keys(error)}`);
     })
 })
 
