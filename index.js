@@ -1,6 +1,6 @@
 // const convertMod = require("./convert.js")
 
-import("puppeteer").then(function(data) { return "Puppeteer imported"});
+// import("puppeteer").then(function(data) { return "Puppeteer imported"});
 
 const convertSchema = {
   body: {
@@ -19,13 +19,25 @@ async function bzmbConvert(fastify, options) {
     "/bzmb-htmltopdf-convert",
     { schema: convertSchema },
     async (req, res) => {
-      console.log("Running Imports");
       try {
-        await import("puppeteer");
-      } catch (error) {
-        console.log(`Import error: ${error}`);
+        const pdf = await convert(req.html, req.options);
+        res
+          .code(200)
+          .send(pdf);
         
+      } catch (error) {
+        res
+          .code(500)
+          .send(error);
       }
+
+      // console.log("Running Imports");
+      // try {
+      //   await import("puppeteer");
+      // } catch (error) {
+      //   console.log(`Import error: ${error}`);
+        
+      // }
       // console.log(puppeteer);
       
       // const importPromise = require('./imports.js');
@@ -45,7 +57,7 @@ async function bzmbConvert(fastify, options) {
         
       // }
 
-      res.code(200).send(`placeholder`);
+      // res.code(200).send(`placeholder`);
       
       // require("./convert.js").then(async function(convert) {
       //   console.log("In then");
