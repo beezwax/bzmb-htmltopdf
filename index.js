@@ -16,13 +16,16 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       try {
+        let pdf;
         const convertMod = require("./convert.js").then(async function(convert) {
-          const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
-          console.log(pdf);
-          res
-            .code(200)
-            .send(pdf ? pdf : "No PDF generated");
-        });
+          pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
+          // console.log(pdf);
+          // res
+          //   .code(200)
+          //   .send(pdf ? pdf : "No PDF generated");
+        }).then(function() {res
+          .code(200)
+          .send(pdf ? pdf : "No PDF generated");});
         // let pdf;
         // const convertMod = require("./convert.js");
         // console.log(convertMod);
