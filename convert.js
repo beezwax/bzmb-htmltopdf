@@ -35,6 +35,8 @@ module.exports = new Promise(function (resolve, reject) {
       const pdf = await page.pdf(options);
       const buffer = Buffer.from(pdf);
       const base64String = buffer.toString('base64');
+      console.log(base64String);
+      
       return base64String;
     };
     resolve(convert);
