@@ -1,4 +1,4 @@
-const convertMod = require("./convert.js")
+// const convertMod = require("./convert.js")
 
 const convertSchema = {
   body: {
@@ -17,52 +17,58 @@ async function bzmbConvert(fastify, options) {
     "/bzmb-htmltopdf-convert",
     { schema: convertSchema },
     async (req, res) => {
-      try {
-        let pdf;
-        convertMod.then(async function(convert) {
-          try {
-            pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
-            resolve(pdf)
-          } catch (err) {
-            reject(err);
-          }
-          
-          // console.log(pdf);
-          // res
-          //   .code(200)
-          //   .send(pdf ? pdf : "No PDF generated");
-        }).then(function(pdf) {
-          res
-            .code(200)
-            .send(pdf ? pdf : "No PDF generated");
-        }).catch(function(err){
-          res
-            .code(500)
-            .send(err.toString())
-
-        });
-        // let pdf;
-        // const convertMod = require("./convert.js");
-        // console.log(convertMod);
-        
-        // console.log(convertMod);
-        
-        // convertMod(async function(convert){
-        //   const pdf = await convert(req.html, req.options);
-        //   console.log(pdf);
-          
-        //   // res
-        //   //   .code(200)
-        //   //   .send(pdf ? pdf : "No PDF generated");
-        // });
+      require("./convert.js").then(async function(convert) {
+        const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
         res
           .code(200)
-          .send("Placeholder");
-      } catch (error) {
-        res
-          .code(500)
-          .send(error);
-      }
+          .send(pdf ? pdf : "No PDF generated");
+      });
+      // try {
+      //   let pdf;
+      //   convertMod.then(async function(convert) {
+      //     try {
+      //       pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
+      //       resolve(pdf)
+      //     } catch (err) {
+      //       reject(err);
+      //     }
+          
+      //     // console.log(pdf);
+      //     // res
+      //     //   .code(200)
+      //     //   .send(pdf ? pdf : "No PDF generated");
+      //   }).then(function(pdf) {
+      //     res
+      //       .code(200)
+      //       .send(pdf ? pdf : "No PDF generated");
+      //   }).catch(function(err){
+      //     res
+      //       .code(500)
+      //       .send(err.toString())
+
+      //   });
+      //   // let pdf;
+      //   // const convertMod = require("./convert.js");
+      //   // console.log(convertMod);
+        
+      //   // console.log(convertMod);
+        
+      //   // convertMod(async function(convert){
+      //   //   const pdf = await convert(req.html, req.options);
+      //   //   console.log(pdf);
+          
+      //   //   // res
+      //   //   //   .code(200)
+      //   //   //   .send(pdf ? pdf : "No PDF generated");
+      //   // });
+      //   res
+      //     .code(200)
+      //     .send("Placeholder");
+      // } catch (error) {
+      //   res
+      //     .code(500)
+      //     .send(error);
+      // }
     }
   )
 }
