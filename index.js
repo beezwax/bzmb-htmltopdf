@@ -18,7 +18,11 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       const importPromise = require('./imports.js');
-      importPromise.then(([result]) => console.log(result))
+
+      const importPromiseResult = await importPromise;
+
+      console.log(importPromiseResult);
+      
       // let convertMod;
       // try {
       //   console.log("About to require");
