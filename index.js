@@ -1,3 +1,5 @@
+const convertMod = require("./convert.js")
+
 const convertSchema = {
   body: {
     type: "object",
@@ -17,7 +19,7 @@ async function bzmbConvert(fastify, options) {
     async (req, res) => {
       try {
         let pdf;
-        const convertMod = require("./convert.js").then(async function(convert) {
+        convertMod.then(async function(convert) {
           try {
             pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
             resolve(pdf)
