@@ -2,6 +2,8 @@
 
 // import("puppeteer").then(function(data) { return "Puppeteer imported"});
 
+const convert = require("./convert.js");
+
 const convertSchema = {
   body: {
     type: "object",
