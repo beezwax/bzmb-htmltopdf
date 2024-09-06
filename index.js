@@ -55,9 +55,9 @@ async function bzmbConvert(fastify, options) {
         //   //   .code(200)
         //   //   .send(pdf ? pdf : "No PDF generated");
         // });
-        // res
-        //   .code(200)
-        //   .send("Placeholder");
+        res
+          .code(200)
+          .send("Placeholder");
       } catch (error) {
         res
           .code(500)
