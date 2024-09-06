@@ -16,9 +16,16 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       try {
+        const convertMod = require("./convert.js").then(async function(convert) {
+          const pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
+          console.log(pdf);
+          res
+            .code(200)
+            .send(pdf ? pdf : "No PDF generated");
+        });
         // let pdf;
-        const convertMod = require("./convert.js");
-        console.log(convertMod);
+        // const convertMod = require("./convert.js");
+        // console.log(convertMod);
         
         // console.log(convertMod);
         
@@ -30,9 +37,9 @@ async function bzmbConvert(fastify, options) {
         //   //   .code(200)
         //   //   .send(pdf ? pdf : "No PDF generated");
         // });
-        res
-          .code(200)
-          .send("Placeholder");
+        // res
+        //   .code(200)
+        //   .send("Placeholder");
       } catch (error) {
         res
           .code(500)
