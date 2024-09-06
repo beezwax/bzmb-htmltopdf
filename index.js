@@ -33,6 +33,11 @@ async function bzmbConvert(fastify, options) {
           res
             .code(200)
             .send(pdf ? pdf : "No PDF generated");
+        }).catch(function(err){
+          res
+            .code(500)
+            .send(err.toString())
+
         });
         // let pdf;
         // const convertMod = require("./convert.js");
