@@ -17,6 +17,8 @@ async function bzmbConvert(fastify, options) {
     "/bzmb-htmltopdf-convert",
     { schema: convertSchema },
     async (req, res) => {
+      console.log("About to require");
+      
       require("./convert.js").then(async function(convert) {
         console.log("In then");
         
