@@ -26,7 +26,7 @@ async function bzmbConvert(fastify, options) {
         
       }
 
-      return res.code(200).send(`convertMod is ${typeof convertMod}`);
+      res.code(200).send(`convertMod is ${typeof convertMod}`);
       
       // require("./convert.js").then(async function(convert) {
       //   console.log("In then");
