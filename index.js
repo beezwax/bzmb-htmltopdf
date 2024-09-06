@@ -21,7 +21,7 @@ async function bzmbConvert(fastify, options) {
       try {
         await import("puppeteer");
       } catch (error) {
-        console.log(`Import error: ${JSON.stringify(error)}`);
+        console.log(`Import error: ${error}`);
         
       }
       // console.log(puppeteer);
