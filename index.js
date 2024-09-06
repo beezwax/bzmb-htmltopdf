@@ -1,5 +1,7 @@
 // const convertMod = require("./convert.js")
 
+await import("puppeteer");
+
 const convertSchema = {
   body: {
     type: "object",
