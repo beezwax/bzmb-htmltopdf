@@ -17,9 +17,12 @@ async function bzmbConvert(fastify, options) {
     "/bzmb-htmltopdf-convert",
     { schema: convertSchema },
     async (req, res) => {
+      console.log("Running Imports");
       const importPromise = require('./imports.js');
 
+      console.log("Resolving Promise");
       const importPromiseResult = await importPromise;
+      console.log("About to log promise result");
 
       console.log(importPromiseResult);
       
