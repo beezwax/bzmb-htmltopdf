@@ -1,5 +1,5 @@
 console.log("Attemping to require puppeteer");
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteers");
 console.log("Required puppeteer successfully");
 
 async function convert (html, options) {
