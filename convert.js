@@ -27,6 +27,7 @@
 
 let convert;
 module.exports = new Promise(function (resolve, reject) {
+  console.log("about to require imports");
   require('./imports.js')
     .then(([puppeteer]) => {
       convert = async function (html, options) {
