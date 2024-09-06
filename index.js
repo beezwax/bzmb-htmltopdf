@@ -18,15 +18,22 @@ async function bzmbConvert(fastify, options) {
       try {
         let pdf;
         const convertMod = require("./convert.js").then(async function(convert) {
-          pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
-          resolve(pdf);
+          try {
+            pdf = await convert('<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>');
+            resolve(pdf)
+          } catch (err) {
+            reject(err);
+          }
+          
           // console.log(pdf);
           // res
           //   .code(200)
           //   .send(pdf ? pdf : "No PDF generated");
-        }).then(function() {res
-          .code(200)
-          .send(pdf ? pdf : "No PDF generated");});
+        }).then(function(pdf) {
+          res
+            .code(200)
+            .send(pdf ? pdf : "No PDF generated");
+        });
         // let pdf;
         // const convertMod = require("./convert.js");
         // console.log(convertMod);
