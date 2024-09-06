@@ -1,4 +1,6 @@
+console.log("Attemping to require puppeteer");
 const puppeteer = require("puppeteer");
+console.log("Required puppeteer successfully");
 
 async function convert (html, options) {
   const browser = await puppeteer.launch();
