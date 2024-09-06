@@ -1,6 +1,6 @@
 // const convertMod = require("./convert.js")
 
-await import("puppeteer");
+import("puppeteer").then(function(data) { return "Puppeteer imported"});
 
 const convertSchema = {
   body: {
