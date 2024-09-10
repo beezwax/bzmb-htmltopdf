@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 
 async function convert (html, options) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({args: ["--no-sandbox"]});
   const page = await browser.newPage();
   await page.setContent(html);
   const pdf = await page.pdf(options);
