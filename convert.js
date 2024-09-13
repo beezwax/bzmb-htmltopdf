@@ -1,3 +1,6 @@
+const { join } = require("path");
+process.env["PUPPETEER_CACHE_DIR"] = join(__dirname, ".cache", "puppeteer");
+
 const puppeteer = require("puppeteer");
 
 async function convert (html, options) {
