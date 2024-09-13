@@ -1,7 +1,3 @@
-// const convertMod = require("./convert.js")
-
-// import("puppeteer").then(function(data) { return "Puppeteer imported"});
-
 const convert = require("./convert.js");
 
 const convertSchema = {
@@ -22,7 +18,7 @@ async function bzmbConvert(fastify, options) {
     { schema: convertSchema },
     async (req, res) => {
       try {
-        const pdf = await convert(req.html, req.options);
+        const pdf = await convert(req.body.html, req.body.options);
         res
           .code(200)
           .send(pdf);
